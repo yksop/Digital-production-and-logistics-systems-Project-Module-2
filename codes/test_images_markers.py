@@ -43,9 +43,12 @@ zoom = 13
 
 url_complete = (
     url
-    + "center=" + center
-    + "&zoom=" + str(zoom)
-    + "&size=400x400&key=" + api_key
+    + "center="
+    + center
+    + "&zoom="
+    + str(zoom)
+    + "&size=400x400&key="
+    + api_key
     + markers
     + "&style=feature:poi|visibility:off"
 )
