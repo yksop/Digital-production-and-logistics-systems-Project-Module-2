@@ -1,0 +1,8 @@
+import distance_matrix as dm
+
+TARGET_WEEKDAY = 0  # Monday
+TARGET_HOUR = 9
+
+dm.TARGET_WEEKDAY = TARGET_WEEKDAY
+dm.TARGET_HOUR = TARGET_HOUR
+print(dm.main(TARGET_WEEKDAY, TARGET_HOUR))

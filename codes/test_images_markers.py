@@ -5,6 +5,8 @@ import os
 
 load_dotenv()
 
+
+# TODO Change to use the id file
 api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 gmaps = googlemaps.Client(key=api_key)
 
@@ -49,6 +51,8 @@ url_complete = (
     + markers
     + "&style=feature:poi|visibility:off"
 )
+
+url_complete = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=New%20York%20City%2C%20NY&origins=Washington%2C%20DC&units=imperial&key=" + api_key
 
 r = requests.get(url_complete)
 
