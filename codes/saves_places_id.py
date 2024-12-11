@@ -1,4 +1,3 @@
-import googlemaps
 from dotenv import load_dotenv
 import requests
 import os
@@ -27,10 +26,12 @@ def get_place_id(location, api_key):
             return result['candidates'][0]['place_id']
     return None
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-path = os.path.join(current_dir, "data\\locations.txt")
-path_to_save = os.path.join(current_dir, "data\\places_id.txt")
+def main():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    path_loc = os.path.join(current_dir, "data\\locations.txt")
+    path_id = os.path.join(current_dir, "data\\places_id.txt")
+    locations = get_location_from_file(path_loc)
+    save_places_id(locations, path_id, api_key)
 
-locations = get_location_from_file(path)
-
-save_places_id(locations, path_to_save, api_key)
+if __name__ == "__main__":
+    main()

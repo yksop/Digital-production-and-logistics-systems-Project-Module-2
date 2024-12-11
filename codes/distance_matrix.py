@@ -5,7 +5,7 @@ import os
 import json
 import numpy as np
 import datetime
-import calendar
+import saves_places_id as spi
 
 TARGET_WEEKDAY = 0  # Monday
 TARGET_HOUR = 8  # 8:00 AM
@@ -29,10 +29,13 @@ def get_next_target_weekday(target_weekday, target_hour):
     departure_time = int(target_time.timestamp())
     return departure_time
 
-def get_location_from_file(file_path):
-    with open(file_path, "r") as file:
-        addresses = file.readlines()
-    return [address.strip() for address in addresses]
+def get_file_modification_time(file_path):
+    return os.path.getmtime(file_path)
+
+def compare_file_modification_times(file_path1, file_path2):
+    time1 = get_file_modification_time(file_path1)
+    time2 = get_file_modification_time(file_path2)
+    return time1 < time2
 
 def set_url_destination_params(locations_id):
     url_locations = ""
@@ -72,11 +75,17 @@ def create_time_matrix_from_file(json_file):
 
 def main(TARGET_WEEKDAY, TARGET_HOUR):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(current_dir, "data\\places_id.txt")
+    path_loc = os.path.join(current_dir, "data\\locations.txt")
+    path_id = os.path.join(current_dir, "data\\places_id.txt")
     json_file = f"time_matrix{TARGET_WEEKDAY}_{TARGET_HOUR}.json"
     json_path = os.path.join(current_dir, "data", json_file)
-    if not os.path.exists(json_path):
-        location_id = get_location_from_file(path)
+    if not compare_file_modification_times(path_loc, path_id):
+        print("Updating the places ID file...")
+        locations = spi.get_location_from_file(path_loc)
+        spi.save_places_id(locations, path_id, api_key)
+    if not os.path.exists(json_path) or not compare_file_modification_times(path_id, json_path):
+        print("Creating a new time matrix...")
+        location_id = spi.get_location_from_file(path_id)
         url_locations = set_url_destination_params(location_id)
         # print(url_locations)
 
@@ -88,11 +97,9 @@ def main(TARGET_WEEKDAY, TARGET_HOUR):
             + "&departure_time=" + str(get_next_target_weekday(TARGET_WEEKDAY, TARGET_HOUR))
             + "&key=" + api_key
         )
-
         response = requests.get(url_complete)
         time_json = response.json()
         # print(json.dumps(distance_json, indent=4))
-
         with open(json_path, "w") as outfile:
             json.dump(time_json, outfile, indent=4)
 
