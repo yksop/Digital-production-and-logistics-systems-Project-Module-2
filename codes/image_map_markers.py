@@ -1,9 +1,7 @@
-import googlemaps
 from dotenv import load_dotenv
 import requests
 import os
 import saves_places_id as spi
-
 load_dotenv()
 
 center = "Milan"
@@ -41,7 +39,7 @@ def get_static_map_url(center, zoom, markers, api_key):
     )
     return url_complete
 
-def main(api_key=os.getenv("GOOGLE_MAPS_API_KEY")):
+def main(api_key):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     path_geometry = os.path.join(current_dir, "data\\places_geometry.txt")
     image_path = os.path.join(current_dir, "output\\map_image.png")
@@ -50,11 +48,10 @@ def main(api_key=os.getenv("GOOGLE_MAPS_API_KEY")):
 
     markers = set_markers_on_map(lattitudes, longitude)
     url = get_static_map_url(center, zoom, markers, api_key)
-    print(url)
     r = requests.get(url)
 
     with open(image_path, "wb") as f:
         f.write(r.content)
 
 if __name__ == "__main__":
-    main()
+    main(api_key=os.getenv("GOOGLE_MAPS_API_KEY"))
