@@ -13,8 +13,7 @@ TARGET_HOUR = 8  # 8:00 AM
 
 load_dotenv()
 
-api_key = os.getenv("GOOGLE_MAPS_API_KEY")
-gmaps = googlemaps.Client(key=api_key)
+# gmaps = googlemaps.Client(key=api_key)
 
 def get_next_target_weekday(target_weekday, target_hour):
     now = datetime.datetime.now()
@@ -67,13 +66,25 @@ def create_time_matrix_from_file(json_file):
             if i == j:
                 time_matrix[i][j] = 0  # Ensure the diagonal is 0
             elif element['status'] == 'OK':
-                time_matrix[i][j] = element['duration_in_traffic']['value']  # Time in seconds
+                time_matrix[i][j] = round(float(element['duration_in_traffic']['value']) / 60, 2)  # Time in minutes with 2 decimal places
             else:
                 time_matrix[i][j] = np.inf  # Use infinity if no valid time is available
     
     return time_matrix
 
-def main(TARGET_WEEKDAY, TARGET_HOUR):
+def create_url_matrix(url_locations, api_key):
+    url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
+    url_complete = (
+        url
+        + "origins=" + url_locations
+        + "&destinations=" + url_locations
+        + "&departure_time=" + str(get_next_target_weekday(TARGET_WEEKDAY, TARGET_HOUR))
+        + "&key=" + api_key
+    )
+    return url_complete
+
+def main(TARGET_WEEKDAY, TARGET_HOUR, api_key=os.getenv("GOOGLE_MAPS_API_KEY")):
+    # api_key = os.getenv("GOOGLE_MAPS_API_KEY")
     current_dir = os.path.dirname(os.path.abspath(__file__))
     path_loc = os.path.join(current_dir, "data\\locations.txt")
     path_id = os.path.join(current_dir, "data\\places_id.txt")
@@ -87,19 +98,9 @@ def main(TARGET_WEEKDAY, TARGET_HOUR):
         print("Creating a new time matrix...")
         location_id = spi.get_location_from_file(path_id)
         url_locations = set_url_destination_params(location_id)
-        # print(url_locations)
-
-        url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
-        url_complete = (
-            url
-            + "origins=" + url_locations
-            + "&destinations=" + url_locations
-            + "&departure_time=" + str(get_next_target_weekday(TARGET_WEEKDAY, TARGET_HOUR))
-            + "&key=" + api_key
-        )
+        url_complete = create_url_matrix(url_locations, api_key)
         response = requests.get(url_complete)
         time_json = response.json()
-        # print(json.dumps(distance_json, indent=4))
         with open(json_path, "w") as outfile:
             json.dump(time_json, outfile, indent=4)
 

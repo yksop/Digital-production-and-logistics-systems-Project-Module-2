@@ -44,7 +44,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "20 mins",
-                        "value": 1203
+                        "value": 1181
                     },
                     "status": "OK"
                 },
@@ -59,7 +59,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "17 mins",
-                        "value": 1025
+                        "value": 1023
                     },
                     "status": "OK"
                 },
@@ -73,8 +73,8 @@
                         "value": 1098
                     },
                     "duration_in_traffic": {
-                        "text": "22 mins",
-                        "value": 1290
+                        "text": "21 mins",
+                        "value": 1250
                     },
                     "status": "OK"
                 },
@@ -88,8 +88,8 @@
                         "value": 1136
                     },
                     "duration_in_traffic": {
-                        "text": "24 mins",
-                        "value": 1434
+                        "text": "22 mins",
+                        "value": 1346
                     },
                     "status": "OK"
                 },
@@ -103,8 +103,8 @@
                         "value": 1044
                     },
                     "duration_in_traffic": {
-                        "text": "22 mins",
-                        "value": 1310
+                        "text": "21 mins",
+                        "value": 1263
                     },
                     "status": "OK"
                 }
@@ -122,8 +122,8 @@
                         "value": 533
                     },
                     "duration_in_traffic": {
-                        "text": "10 mins",
-                        "value": 626
+                        "text": "9 mins",
+                        "value": 565
                     },
                     "status": "OK"
                 },
@@ -153,7 +153,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "11 mins",
-                        "value": 636
+                        "value": 668
                     },
                     "status": "OK"
                 },
@@ -168,7 +168,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "15 mins",
-                        "value": 917
+                        "value": 884
                     },
                     "status": "OK"
                 },
@@ -183,7 +183,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "17 mins",
-                        "value": 1046
+                        "value": 1004
                     },
                     "status": "OK"
                 },
@@ -198,7 +198,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "15 mins",
-                        "value": 917
+                        "value": 900
                     },
                     "status": "OK"
                 }
@@ -216,8 +216,8 @@
                         "value": 995
                     },
                     "duration_in_traffic": {
-                        "text": "24 mins",
-                        "value": 1456
+                        "text": "25 mins",
+                        "value": 1488
                     },
                     "status": "OK"
                 },
@@ -232,7 +232,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "19 mins",
-                        "value": 1169
+                        "value": 1150
                     },
                     "status": "OK"
                 },
@@ -262,7 +262,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "9 mins",
-                        "value": 518
+                        "value": 546
                     },
                     "status": "OK"
                 },
@@ -277,7 +277,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "8 mins",
-                        "value": 466
+                        "value": 464
                     },
                     "status": "OK"
                 },
@@ -292,7 +292,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "6 mins",
-                        "value": 345
+                        "value": 359
                     },
                     "status": "OK"
                 }
@@ -310,8 +310,8 @@
                         "value": 1153
                     },
                     "duration_in_traffic": {
-                        "text": "24 mins",
-                        "value": 1420
+                        "text": "23 mins",
+                        "value": 1385
                     },
                     "status": "OK"
                 },
@@ -326,7 +326,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "15 mins",
-                        "value": 928
+                        "value": 905
                     },
                     "status": "OK"
                 },
@@ -341,7 +341,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "8 mins",
-                        "value": 500
+                        "value": 463
                     },
                     "status": "OK"
                 },
@@ -371,7 +371,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "5 mins",
-                        "value": 308
+                        "value": 291
                     },
                     "status": "OK"
                 },
@@ -386,7 +386,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "5 mins",
-                        "value": 295
+                        "value": 302
                     },
                     "status": "OK"
                 }
@@ -404,8 +404,8 @@
                         "value": 969
                     },
                     "duration_in_traffic": {
-                        "text": "21 mins",
-                        "value": 1249
+                        "text": "19 mins",
+                        "value": 1165
                     },
                     "status": "OK"
                 },
@@ -419,8 +419,8 @@
                         "value": 1406
                     },
                     "duration_in_traffic": {
-                        "text": "31 mins",
-                        "value": 1833
+                        "text": "30 mins",
+                        "value": 1786
                     },
                     "status": "OK"
                 },
@@ -434,8 +434,8 @@
                         "value": 1280
                     },
                     "duration_in_traffic": {
-                        "text": "28 mins",
-                        "value": 1654
+                        "text": "27 mins",
+                        "value": 1620
                     },
                     "status": "OK"
                 },
@@ -449,8 +449,8 @@
                         "value": 1357
                     },
                     "duration_in_traffic": {
-                        "text": "31 mins",
-                        "value": 1873
+                        "text": "29 mins",
+                        "value": 1759
                     },
                     "status": "OK"
                 },
@@ -479,8 +479,8 @@
                         "value": 1122
                     },
                     "duration_in_traffic": {
-                        "text": "27 mins",
-                        "value": 1611
+                        "text": "26 mins",
+                        "value": 1588
                     },
                     "status": "OK"
                 }
@@ -499,7 +499,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "21 mins",
-                        "value": 1277
+                        "value": 1253
                     },
                     "status": "OK"
                 },
@@ -514,7 +514,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "13 mins",
-                        "value": 798
+                        "value": 790
                     },
                     "status": "OK"
                 },
@@ -528,8 +528,8 @@
                         "value": 341
                     },
                     "duration_in_traffic": {
-                        "text": "7 mins",
-                        "value": 396
+                        "text": "6 mins",
+                        "value": 371
                     },
                     "status": "OK"
                 },
@@ -544,7 +544,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "3 mins",
-                        "value": 198
+                        "value": 205
                     },
                     "status": "OK"
                 },
@@ -558,8 +558,8 @@
                         "value": 272
                     },
                     "duration_in_traffic": {
-                        "text": "6 mins",
-                        "value": 330
+                        "text": "5 mins",
+                        "value": 315
                     },
                     "status": "OK"
                 },
@@ -574,7 +574,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "1 min",
-                        "value": 40
+                        "value": 34
                     },
                     "status": "OK"
                 }
