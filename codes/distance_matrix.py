@@ -4,14 +4,9 @@ import os
 import json
 import numpy as np
 import datetime
-import saves_places_id as spi
-
-TARGET_WEEKDAY = 0  # Monday
-TARGET_HOUR = 8  # 8:00 AM
-
+import get_location_info as gl
 
 load_dotenv()
-
 
 def get_next_target_weekday(target_weekday, target_hour):
     """
@@ -85,7 +80,7 @@ def create_time_matrix_from_file(json_file):
         json_file (str): Path to the JSON file.
     
     Returns:
-        np.ndarray: A 2D NumPy array representing the time matrix (in seconds).
+        np.ndarray: A 2D NumPy array representing the time matrix (in minutes).
     """
     with open(json_file, 'r') as f:
         data = json.load(f)
@@ -96,22 +91,25 @@ def create_time_matrix_from_file(json_file):
             if i == j:
                 time_matrix[i][j] = 0
             elif element['status'] == 'OK':
-                time_matrix[i][j] = round(float(element['duration_in_traffic']['value']) / 60, 2)  # Time in minutes with 2 decimal places
+                time_matrix[i][j] = round(float(element['duration_in_traffic']['value']) / 60, 2)
             else:
                 time_matrix[i][j] = np.inf
     return time_matrix
 
-def create_url_matrix(url_locations, api_key):
+def create_url_matrix(url_locations, TARGET_WEEKDAY, TARGET_HOUR, api_key):
     """
     Create the complete URL for the Google Distance Matrix API request.
     
     Args:
         url_locations (str): URL parameter string for the locations.
+        TARGET_WEEKDAY (int): The target weekday (0=Monday, 6=Sunday).
+        TARGET_HOUR (int): The target hour (24-hour format).
         api_key (str): Google Maps API key.
     
     Returns:
         str: Complete URL for the API request.
     """
+    print("API Call")
     url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
     url_complete = (
         url
@@ -122,41 +120,42 @@ def create_url_matrix(url_locations, api_key):
     )
     return url_complete
 
-def main(TARGET_WEEKDAY, TARGET_HOUR, api_key=os.getenv("GOOGLE_MAPS_API_KEY")):
+def main(TARGET_WEEKDAY, TARGET_HOUR, api_key):
     """
-    Main function to create a time matrix for the specified target weekday and hour.
-
+    Main function to create a time matrix for a set of locations.
+    This function checks if a time matrix JSON file is up-to-date,
+    and if not, computes a new matrix.
+    
     Args:
         TARGET_WEEKDAY (int): The target weekday (0=Monday, 6=Sunday).
         TARGET_HOUR (int): The target hour (24-hour format).
-        api_key (str, optional): Google Maps API key. Defaults to environment variable.
+        api_key (str): Google Maps API key.
     
     Returns:
-        np.ndarray: A 2D NumPy array representing the time matrix (in seconds).
+        np.ndarray: A 2D NumPy array representing the time matrix (in minutes).
     """
-    # api_key = os.getenv("GOOGLE_MAPS_API_KEY")
     current_dir = os.path.dirname(os.path.abspath(__file__))
     path_loc = os.path.join(current_dir, "data\\locations.txt")
-    path_id = os.path.join(current_dir, "data\\places_id.txt")
     json_file = f"time_matrix{TARGET_WEEKDAY}_{TARGET_HOUR}.json"
     json_path = os.path.join(current_dir, "data", json_file)
-    if not compare_file_modification_times(path_loc, path_id):
-        print("Updating the places ID file...")
-        locations = spi.get_location_from_file(path_loc)
-        spi.save_places_id(locations, path_id, api_key)
-    if not os.path.exists(json_path) or not compare_file_modification_times(path_id, json_path):
-        print("Creating a new time matrix...")
-        location_id = spi.get_location_from_file(path_id)
-        url_locations = set_url_destination_params(location_id)
-        url_complete = create_url_matrix(url_locations, api_key)
-        response = requests.get(url_complete)
-        time_json = response.json()
-        with open(json_path, "w") as outfile:
-            json.dump(time_json, outfile, indent=4)
+    
+    if os.path.exists(json_path) and compare_file_modification_times(path_loc, json_path):
+        # If the file exists and is up-to-date
+        time_matrix = create_time_matrix_from_file(json_path)
+        return time_matrix
+    
+    locations, id, geometry = gl.main(api_key)
+    print("Creating a new time matrix...")
+    url_locations = set_url_destination_params(id)
+    url_complete = create_url_matrix(url_locations, TARGET_WEEKDAY, TARGET_HOUR,api_key)
+        
+    response = requests.get(url_complete)
+    time_json = response.json()
+    with open(json_path, "w") as outfile:
+        json.dump(time_json, outfile, indent=4)
 
     time_matrix = create_time_matrix_from_file(json_path)
     return time_matrix
-    
 
 if __name__ == "__main__":
-    main(TARGET_WEEKDAY, TARGET_HOUR)
+    main(TARGET_WEEKDAY=0, TARGET_HOUR=8, api_key=os.getenv("GOOGLE_MAPS_API_KEY"))

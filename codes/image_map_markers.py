@@ -1,37 +1,45 @@
 from dotenv import load_dotenv
 import requests
 import os
-import saves_places_id as spi
+import get_location_info as gl
+
 load_dotenv()
 
-center = "Milan"
-zoom = 13
-
-
-def set_markers_on_map(latitudes, longitudes):
+def set_markers_on_map(geometry):
+    """
+    Create a string of markers for the Google Static Maps API from a list of geographical coordinates.
+    
+    Args:
+        geometry (list): List of tuples containing latitude and longitude coordinates.
+        
+    Returns:
+        str: URL parameter string for the markers.
+    """
     markers = ""
-    for i in range(len(latitudes)):
-        markers += f"&markers=size:mid%7Ccolor:red%7Clabel:{i}%7C{latitudes[i]},{longitudes[i]}"
-    # markers = markers[:-1]  # Remove the trailing '|'
+    color = "green"
+    for i, place in enumerate(geometry):
+        markers += f"&markers=size:mid%7Ccolor:{color}%7Clabel:{i}%7C{place[0]},{place[1]}"
+        color = "red"
     return markers
 
-def get_latitudes_longitudes(locations):
-    latitudes = []
-    longitudes = []
-    for location in locations:
-        location_dict = eval(location)
-        latitudes.append(location_dict["lat"])
-        longitudes.append(location_dict["lng"])
-    return latitudes, longitudes
-
-def get_static_map_url(center, zoom, markers, api_key):
+def get_static_map_url(markers, api_key):
+    """
+    Create the complete URL for the Google Static Maps API request.
+    
+    Args:
+        markers (str): URL parameter string for the markers.
+        api_key (str): Google Maps API key.
+    
+    Returns:
+        str: Complete URL for the API request.
+    """
     url = "https://maps.googleapis.com/maps/api/staticmap?"
     url_complete = (
         url
-        + "center="
-        + center
-        + "&zoom="
-        + str(zoom)
+        # + "center="
+        # + center
+        # + "&zoom="
+        # + str(zoom)
         + "&size=400x400&key="
         + api_key
         + markers
@@ -39,19 +47,39 @@ def get_static_map_url(center, zoom, markers, api_key):
     )
     return url_complete
 
-def main(api_key):
+def main(locations_to_plot, api_key):
+    """
+    Main function to create a static map image with markers for specified locations.
+    This function retrieves location data, filters the locations to plot, and generates a static map image.
+    
+    Args:
+        locations_to_plot (list): List of location names to plot.
+        api_key (str): Google Maps API key.
+    
+    Returns:
+        None
+    """
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    path_geometry = os.path.join(current_dir, "data\\places_geometry.txt")
     image_path = os.path.join(current_dir, "output\\map_image.png")
-    locations = spi.get_location_from_file(path_geometry)
-    lattitudes, longitude = get_latitudes_longitudes(locations)
 
-    markers = set_markers_on_map(lattitudes, longitude)
-    url = get_static_map_url(center, zoom, markers, api_key)
+    locations, id, geometry = gl.main(api_key)
+
+    filt_locations, filt_id, filt_geometry = [], [], []
+    for index, location in enumerate(locations):
+        if location in locations_to_plot:
+            filt_locations.append(location)
+            filt_id.append(id[index])
+            filt_geometry.append(geometry[index])
+
+    markers = set_markers_on_map(filt_geometry)
+    url = get_static_map_url(markers, api_key)
+    print("API Call")
     r = requests.get(url)
 
     with open(image_path, "wb") as f:
         f.write(r.content)
+    return
 
 if __name__ == "__main__":
-    main(api_key=os.getenv("GOOGLE_MAPS_API_KEY"))
+    a = ["Via Lazzaretto, 1 - 3, 20124 Milano MI"]
+    main(locations_to_plot=a, api_key=os.getenv("GOOGLE_MAPS_API_KEY"))
