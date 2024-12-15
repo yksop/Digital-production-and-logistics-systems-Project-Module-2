@@ -5,7 +5,7 @@ import pandas as pd
 
 load_dotenv()
 
-def get_location_from_file(file_path):
+def get_location_from_file(file_path: str) -> list:
     """
     Reads a file containing addresses and returns a list of addresses.
     
@@ -19,7 +19,7 @@ def get_location_from_file(file_path):
         addresses = file.readlines()
     return [address.strip() for address in addresses]
 
-def save_place_id(location, file_path, api_key):
+def save_place_id(location: str, file_path: str, api_key: str) -> tuple:
     """
     Retrieves the place ID and geographical coordinates for a given location
     and saves the information to a CSV file.
@@ -46,7 +46,7 @@ def save_place_id(location, file_path, api_key):
         df.to_csv(file_path, index=False)
     return t_place_id, t_latitude, t_longitude
 
-def get_data_from_df(file_path):
+def get_data_from_df(file_path: str) -> tuple:
     """
     Reads a CSV file and returns lists of locations, place IDs, and geographical coordinates.
     
@@ -65,7 +65,7 @@ def get_data_from_df(file_path):
     geometries = df[["latitude", "longitude"]].values.tolist()
     return locations, place_ids, geometries
 
-def get_place_id(location, api_key):
+def get_place_id(location: str, api_key: str) -> tuple:
     """
     Retrieves the place ID and geographical coordinates for a given location using the Google Maps API.
     
@@ -87,7 +87,7 @@ def get_place_id(location, api_key):
             return place_id, geometry["lat"], geometry["lng"]
     return None
 
-def main(api_key):
+def main(api_key: str) -> tuple:
     """
     Main function to retrieve and save location information.
     This function reads new locations from the locations file, checks if they are already 

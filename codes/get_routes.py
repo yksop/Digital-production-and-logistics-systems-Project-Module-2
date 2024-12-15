@@ -5,7 +5,7 @@ import os
 
 load_dotenv()
 
-def get_route(origin, destination, TARGET_WEEKDAY, TARGET_HOUR, api_key):
+def get_route(origin: tuple, destination: tuple, TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str) -> str:
     """
     Retrieves the encoded polyline for the route between the origin and destination using the Google Directions API.
     
@@ -46,7 +46,7 @@ def get_route(origin, destination, TARGET_WEEKDAY, TARGET_HOUR, api_key):
         print(f"HTTP error: {response.status_code}")
         return None
 
-def get_static_map_url_path(path, api_key):
+def get_static_map_url_path(path: str, api_key: str) -> str:
     """
     Create the complete URL for the Google Static Maps API request with the route path.
     
@@ -61,7 +61,7 @@ def get_static_map_url_path(path, api_key):
     url_complete = url + "&size=400x400&key=" + api_key + path + "&style=feature:poi|visibility:off"
     return url_complete
 
-def get_path_from_encoded_polyline(encoded_polyline):
+def get_path_from_encoded_polyline(encoded_polyline: str) -> str:
     """
     Create a URL parameter string for the path from the encoded polyline.
     
@@ -74,7 +74,7 @@ def get_path_from_encoded_polyline(encoded_polyline):
     path = f"&path=weight:2|color:red|enc:{encoded_polyline}"
     return path
 
-def main(origin, destination, n_route, TARGET_WEEKDAY, TARGET_HOUR, api_key):
+def main(origin: tuple, destination: tuple, n_route: int, TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str) -> None:
     """
     Main function to create a static map image with the route between the origin and destination.
     This function retrieves the route, generates the static map image, and saves it to a file.

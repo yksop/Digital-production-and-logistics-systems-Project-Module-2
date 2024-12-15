@@ -8,7 +8,7 @@ import get_location_info as gl
 
 load_dotenv()
 
-def get_next_target_weekday(target_weekday, target_hour):
+def get_next_target_weekday(target_weekday: int, target_hour: int) -> int:
     """
     Calculate the UNIX timestamp for the next occurrence of the target weekday and hour.
     
@@ -40,7 +40,7 @@ def get_file_modification_time(file_path):
     """
     return os.path.getmtime(file_path)
 
-def compare_file_modification_times(file_path1, file_path2):
+def compare_file_modification_times(file_path1: str, file_path2: str) -> bool:
     """
     Compare the modification times of two files.
     
@@ -55,7 +55,7 @@ def compare_file_modification_times(file_path1, file_path2):
     time2 = get_file_modification_time(file_path2)
     return time1 < time2
 
-def set_url_destination_params(locations_id):
+def set_url_destination_params(locations_id: list) -> str:
     """
     Create a URL parameter string for the Google Distance Matrix API from a list of place IDs.
     
@@ -71,7 +71,7 @@ def set_url_destination_params(locations_id):
     url_locations = url_locations[:-1]    
     return url_locations
 
-def create_time_matrix_from_file(json_file):
+def create_time_matrix_from_file(json_file: str) -> np.ndarray:
     """
     Reads a JSON file containing the Google Distance Matrix API response 
     and creates a time matrix.
@@ -96,7 +96,7 @@ def create_time_matrix_from_file(json_file):
                 time_matrix[i][j] = np.inf
     return time_matrix
 
-def create_url_matrix(url_locations, TARGET_WEEKDAY, TARGET_HOUR, api_key):
+def create_url_matrix(url_locations: str, TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str) -> str:
     """
     Create the complete URL for the Google Distance Matrix API request.
     
@@ -120,7 +120,7 @@ def create_url_matrix(url_locations, TARGET_WEEKDAY, TARGET_HOUR, api_key):
     )
     return url_complete
 
-def main(TARGET_WEEKDAY, TARGET_HOUR, api_key):
+def main(TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str) -> np.ndarray:
     """
     Main function to create a time matrix for a set of locations.
     This function checks if a time matrix JSON file is up-to-date,

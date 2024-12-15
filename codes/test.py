@@ -9,13 +9,13 @@ load_dotenv()
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-def test_get_location_info(api_key):
+def test_get_location_info(api_key: str) -> None:
     """
     The file locations.txt can be changed and when executed this function, the database in places_id.csv will be updated.
     """
     gli.main(api_key)
 
-def tes_distance_matrix(api_key):
+def tes_distance_matrix(api_key: str) -> None:
     """
     This function will create a time matrix in minutes for all the locations in the database.
     Args:
@@ -29,8 +29,7 @@ def tes_distance_matrix(api_key):
     matrix = dm.main(TARGET_WEEKDAY, TARGET_HOUR, api_key)
     print(matrix)
 
-
-def test_image_map_markers(api_key):
+def test_image_map_markers(api_key: str) -> None:
     """
     This function will create a map with markers of the points passed as argument.
     The points need to be in the database. Or can be added in locations.txt and executing get_location_info.main(api_key)
@@ -42,7 +41,7 @@ def test_image_map_markers(api_key):
     locations_to_plot = gli.get_location_from_file(path_loc)
     imm.main(locations_to_plot, api_key)
 
-def test_get_routes(api_key):
+def test_get_routes(api_key: str) -> None:
     """
     This function will create a map with the route between two points.
     Args:
@@ -62,7 +61,7 @@ def test_get_routes(api_key):
 
 
 
-def main():
+def main() -> None:
     api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 
     # test_get_location_info(api_key)

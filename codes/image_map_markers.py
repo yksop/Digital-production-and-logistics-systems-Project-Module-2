@@ -5,7 +5,7 @@ import get_location_info as gl
 
 load_dotenv()
 
-def set_markers_on_map(geometry):
+def set_markers_on_map(geometry: list) -> str:
     """
     Create a string of markers for the Google Static Maps API from a list of geographical coordinates.
     
@@ -22,7 +22,7 @@ def set_markers_on_map(geometry):
         color = "red"
     return markers
 
-def get_static_map_url(markers, api_key):
+def get_static_map_url(markers: str, api_key: str) -> str:
     """
     Create the complete URL for the Google Static Maps API request.
     
@@ -47,7 +47,7 @@ def get_static_map_url(markers, api_key):
     )
     return url_complete
 
-def main(locations_to_plot, api_key):
+def main(locations_to_plot: list, api_key: str) -> None:
     """
     Main function to create a static map image with markers for specified locations.
     This function retrieves location data, filters the locations to plot, and generates a static map image.
