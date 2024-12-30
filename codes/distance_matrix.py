@@ -71,7 +71,7 @@ def set_url_destination_params(locations_id: list) -> str:
     url_locations = url_locations[:-1]    
     return url_locations
 
-def create_time_matrix_from_file(json_file: str) -> np.ndarray:
+def create_time_matrix_from_file(json_file: str) -> tuple:
     """
     Reads a JSON file containing the Google Distance Matrix API response 
     and creates a time matrix.
@@ -81,20 +81,25 @@ def create_time_matrix_from_file(json_file: str) -> np.ndarray:
     
     Returns:
         np.ndarray: A 2D NumPy array representing the time matrix (in minutes).
+        np.ndarray: A 2D NumPy array representing the distance matrix (in minutes).
     """
     with open(json_file, 'r') as f:
         data = json.load(f)
     num_locations = len(data['rows'])
     time_matrix = np.zeros((num_locations, num_locations))
+    distance_matrix = np.zeros((num_locations, num_locations))
     for i, row in enumerate(data['rows']):
         for j, element in enumerate(row['elements']):
             if i == j:
                 time_matrix[i][j] = 0
+                distance_matrix[i][j] = 0
             elif element['status'] == 'OK':
                 time_matrix[i][j] = round(float(element['duration_in_traffic']['value']) / 60, 2)
+                distance_matrix[i][j] = float(element['distance']['value'])
             else:
                 time_matrix[i][j] = np.inf
-    return time_matrix
+                distance_matrix[i][j] = np.inf
+    return time_matrix, distance_matrix
 
 def create_url_matrix(url_locations: str, TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str) -> str:
     """
@@ -141,8 +146,8 @@ def main(TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str) -> np.ndarray:
     
     if os.path.exists(json_path) and compare_file_modification_times(path_loc, json_path):
         # If the file exists and is up-to-date
-        time_matrix = create_time_matrix_from_file(json_path)
-        return time_matrix
+        time_matrix, distance_matrix = create_time_matrix_from_file(json_path)
+        return time_matrix, distance_matrix
     
     locations, id, geometry = gl.main(api_key)
     print("Creating a new time matrix...")
@@ -154,8 +159,8 @@ def main(TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str) -> np.ndarray:
     with open(json_path, "w") as outfile:
         json.dump(time_json, outfile, indent=4)
 
-    time_matrix = create_time_matrix_from_file(json_path)
-    return time_matrix
+    time_matrix, distance_matrix = create_time_matrix_from_file(json_path)
+    return time_matrix, distance_matrix
 
 if __name__ == "__main__":
     main(TARGET_WEEKDAY=0, TARGET_HOUR=8, api_key=os.getenv("GOOGLE_MAPS_API_KEY"))
