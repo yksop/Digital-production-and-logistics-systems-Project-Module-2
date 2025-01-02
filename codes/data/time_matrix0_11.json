@@ -29,7 +29,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "1 min",
-                        "value": 21
+                        "value": 22
                     },
                     "status": "OK"
                 },
@@ -43,8 +43,8 @@
                         "value": 946
                     },
                     "duration_in_traffic": {
-                        "text": "20 mins",
-                        "value": 1224
+                        "text": "19 mins",
+                        "value": 1144
                     },
                     "status": "OK"
                 },
@@ -58,53 +58,53 @@
                         "value": 820
                     },
                     "duration_in_traffic": {
-                        "text": "17 mins",
-                        "value": 1043
+                        "text": "16 mins",
+                        "value": 973
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "4.1 km",
-                        "value": 4078
-                    },
-                    "duration": {
-                        "text": "18 mins",
-                        "value": 1098
-                    },
-                    "duration_in_traffic": {
-                        "text": "22 mins",
-                        "value": 1306
-                    },
-                    "status": "OK"
-                },
-                {
-                    "distance": {
-                        "text": "4.4 km",
-                        "value": 4351
+                        "text": "3.8 km",
+                        "value": 3779
                     },
                     "duration": {
                         "text": "19 mins",
-                        "value": 1136
+                        "value": 1112
                     },
                     "duration_in_traffic": {
-                        "text": "23 mins",
-                        "value": 1373
+                        "text": "19 mins",
+                        "value": 1166
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "4.1 km",
-                        "value": 4064
+                        "text": "4.9 km",
+                        "value": 4910
                     },
                     "duration": {
-                        "text": "17 mins",
-                        "value": 1044
+                        "text": "20 mins",
+                        "value": 1176
+                    },
+                    "duration_in_traffic": {
+                        "text": "23 mins",
+                        "value": 1359
+                    },
+                    "status": "OK"
+                },
+                {
+                    "distance": {
+                        "text": "4.6 km",
+                        "value": 4623
+                    },
+                    "duration": {
+                        "text": "18 mins",
+                        "value": 1084
                     },
                     "duration_in_traffic": {
                         "text": "21 mins",
-                        "value": 1277
+                        "value": 1261
                     },
                     "status": "OK"
                 }
@@ -123,7 +123,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "10 mins",
-                        "value": 622
+                        "value": 570
                     },
                     "status": "OK"
                 },
@@ -153,52 +153,52 @@
                     },
                     "duration_in_traffic": {
                         "text": "11 mins",
-                        "value": 673
+                        "value": 642
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "2.8 km",
-                        "value": 2848
-                    },
-                    "duration": {
-                        "text": "13 mins",
-                        "value": 796
-                    },
-                    "duration_in_traffic": {
-                        "text": "16 mins",
-                        "value": 940
-                    },
-                    "status": "OK"
-                },
-                {
-                    "distance": {
-                        "text": "3.1 km",
-                        "value": 3121
+                        "text": "2.5 km",
+                        "value": 2548
                     },
                     "duration": {
                         "text": "14 mins",
-                        "value": 833
+                        "value": 810
                     },
                     "duration_in_traffic": {
-                        "text": "17 mins",
-                        "value": 1019
+                        "text": "14 mins",
+                        "value": 832
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "2.8 km",
-                        "value": 2834
+                        "text": "3.7 km",
+                        "value": 3679
                     },
                     "duration": {
-                        "text": "12 mins",
-                        "value": 742
+                        "text": "15 mins",
+                        "value": 873
                     },
                     "duration_in_traffic": {
-                        "text": "15 mins",
-                        "value": 925
+                        "text": "17 mins",
+                        "value": 1025
+                    },
+                    "status": "OK"
+                },
+                {
+                    "distance": {
+                        "text": "3.4 km",
+                        "value": 3392
+                    },
+                    "duration": {
+                        "text": "13 mins",
+                        "value": 782
+                    },
+                    "duration_in_traffic": {
+                        "text": "16 mins",
+                        "value": 943
                     },
                     "status": "OK"
                 }
@@ -216,23 +216,23 @@
                         "value": 995
                     },
                     "duration_in_traffic": {
-                        "text": "27 mins",
-                        "value": 1616
+                        "text": "20 mins",
+                        "value": 1196
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "3.8 km",
-                        "value": 3802
+                        "text": "3.5 km",
+                        "value": 3542
                     },
                     "duration": {
-                        "text": "15 mins",
-                        "value": 890
+                        "text": "14 mins",
+                        "value": 836
                     },
                     "duration_in_traffic": {
-                        "text": "19 mins",
-                        "value": 1146
+                        "text": "16 mins",
+                        "value": 985
                     },
                     "status": "OK"
                 },
@@ -247,22 +247,22 @@
                     },
                     "duration_in_traffic": {
                         "text": "1 min",
-                        "value": 20
+                        "value": 21
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "2.1 km",
-                        "value": 2144
+                        "text": "2.2 km",
+                        "value": 2153
                     },
                     "duration": {
                         "text": "8 mins",
-                        "value": 498
+                        "value": 485
                     },
                     "duration_in_traffic": {
-                        "text": "10 mins",
-                        "value": 578
+                        "text": "8 mins",
+                        "value": 496
                     },
                     "status": "OK"
                 },
@@ -276,8 +276,8 @@
                         "value": 355
                     },
                     "duration_in_traffic": {
-                        "text": "8 mins",
-                        "value": 451
+                        "text": "7 mins",
+                        "value": 403
                     },
                     "status": "OK"
                 },
@@ -291,8 +291,8 @@
                         "value": 263
                     },
                     "duration_in_traffic": {
-                        "text": "6 mins",
-                        "value": 354
+                        "text": "5 mins",
+                        "value": 306
                     },
                     "status": "OK"
                 }
@@ -302,46 +302,46 @@
             "elements": [
                 {
                     "distance": {
-                        "text": "4.8 km",
-                        "value": 4840
+                        "text": "4.5 km",
+                        "value": 4525
                     },
                     "duration": {
-                        "text": "19 mins",
-                        "value": 1153
+                        "text": "17 mins",
+                        "value": 1041
                     },
                     "duration_in_traffic": {
-                        "text": "24 mins",
-                        "value": 1432
+                        "text": "21 mins",
+                        "value": 1235
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "2.8 km",
-                        "value": 2830
+                        "text": "2.5 km",
+                        "value": 2516
                     },
                     "duration": {
-                        "text": "12 mins",
-                        "value": 743
+                        "text": "11 mins",
+                        "value": 631
                     },
                     "duration_in_traffic": {
-                        "text": "15 mins",
-                        "value": 899
+                        "text": "13 mins",
+                        "value": 790
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "1.6 km",
-                        "value": 1634
+                        "text": "1.3 km",
+                        "value": 1319
                     },
                     "duration": {
-                        "text": "8 mins",
-                        "value": 458
+                        "text": "6 mins",
+                        "value": 346
                     },
                     "duration_in_traffic": {
-                        "text": "8 mins",
-                        "value": 470
+                        "text": "7 mins",
+                        "value": 393
                     },
                     "status": "OK"
                 },
@@ -363,30 +363,30 @@
                 {
                     "distance": {
                         "text": "0.9 km",
-                        "value": 883
+                        "value": 910
                     },
                     "duration": {
-                        "text": "4 mins",
-                        "value": 259
+                        "text": "5 mins",
+                        "value": 283
                     },
                     "duration_in_traffic": {
                         "text": "5 mins",
-                        "value": 313
+                        "value": 283
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "0.9 km",
-                        "value": 941
+                        "text": "1.0 km",
+                        "value": 968
                     },
                     "duration": {
                         "text": "5 mins",
-                        "value": 279
+                        "value": 303
                     },
                     "duration_in_traffic": {
-                        "text": "6 mins",
-                        "value": 332
+                        "text": "5 mins",
+                        "value": 296
                     },
                     "status": "OK"
                 }
@@ -404,8 +404,8 @@
                         "value": 969
                     },
                     "duration_in_traffic": {
-                        "text": "21 mins",
-                        "value": 1235
+                        "text": "18 mins",
+                        "value": 1060
                     },
                     "status": "OK"
                 },
@@ -419,38 +419,38 @@
                         "value": 1406
                     },
                     "duration_in_traffic": {
-                        "text": "31 mins",
-                        "value": 1857
+                        "text": "28 mins",
+                        "value": 1676
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
-                        "text": "5.6 km",
-                        "value": 5620
+                        "text": "6.7 km",
+                        "value": 6708
                     },
                     "duration": {
-                        "text": "21 mins",
-                        "value": 1280
+                        "text": "22 mins",
+                        "value": 1316
                     },
                     "duration_in_traffic": {
-                        "text": "29 mins",
-                        "value": 1713
+                        "text": "25 mins",
+                        "value": 1483
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
                         "text": "6.2 km",
-                        "value": 6222
+                        "value": 6231
                     },
                     "duration": {
-                        "text": "23 mins",
-                        "value": 1357
+                        "text": "22 mins",
+                        "value": 1344
                     },
                     "duration_in_traffic": {
-                        "text": "30 mins",
-                        "value": 1816
+                        "text": "25 mins",
+                        "value": 1477
                     },
                     "status": "OK"
                 },
@@ -479,8 +479,8 @@
                         "value": 1122
                     },
                     "duration_in_traffic": {
-                        "text": "27 mins",
-                        "value": 1646
+                        "text": "21 mins",
+                        "value": 1263
                     },
                     "status": "OK"
                 }
@@ -498,8 +498,8 @@
                         "value": 1036
                     },
                     "duration_in_traffic": {
-                        "text": "21 mins",
-                        "value": 1275
+                        "text": "20 mins",
+                        "value": 1210
                     },
                     "status": "OK"
                 },
@@ -513,8 +513,8 @@
                         "value": 627
                     },
                     "duration_in_traffic": {
-                        "text": "12 mins",
-                        "value": 748
+                        "text": "13 mins",
+                        "value": 771
                     },
                     "status": "OK"
                 },
@@ -529,22 +529,22 @@
                     },
                     "duration_in_traffic": {
                         "text": "6 mins",
-                        "value": 357
+                        "value": 366
                     },
                     "status": "OK"
                 },
                 {
                     "distance": {
                         "text": "0.8 km",
-                        "value": 800
+                        "value": 809
                     },
                     "duration": {
                         "text": "4 mins",
-                        "value": 235
+                        "value": 222
                     },
                     "duration_in_traffic": {
-                        "text": "4 mins",
-                        "value": 240
+                        "text": "3 mins",
+                        "value": 200
                     },
                     "status": "OK"
                 },
@@ -559,7 +559,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "5 mins",
-                        "value": 301
+                        "value": 288
                     },
                     "status": "OK"
                 },
@@ -574,7 +574,7 @@
                     },
                     "duration_in_traffic": {
                         "text": "1 min",
-                        "value": 34
+                        "value": 32
                     },
                     "status": "OK"
                 }
