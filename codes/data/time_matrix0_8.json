@@ -456,16 +456,16 @@
                 },
                 {
                     "distance": {
-                        "text": "4.5 km",
-                        "value": 4547
+                        "text": "4.4 km",
+                        "value": 4358
                     },
                     "duration": {
                         "text": "16 mins",
-                        "value": 941
+                        "value": 950
                     },
                     "duration_in_traffic": {
-                        "text": "21 mins",
-                        "value": 1259
+                        "text": "23 mins",
+                        "value": 1369
                     },
                     "status": "OK"
                 },
@@ -610,16 +610,16 @@
                 },
                 {
                     "distance": {
-                        "text": "4.5 km",
-                        "value": 4464
+                        "text": "4.2 km",
+                        "value": 4239
                     },
                     "duration": {
                         "text": "15 mins",
-                        "value": 874
+                        "value": 927
                     },
                     "duration_in_traffic": {
-                        "text": "17 mins",
-                        "value": 1016
+                        "text": "20 mins",
+                        "value": 1183
                     },
                     "status": "OK"
                 },
@@ -918,16 +918,16 @@
                 },
                 {
                     "distance": {
-                        "text": "4.4 km",
-                        "value": 4406
+                        "text": "4.2 km",
+                        "value": 4181
                     },
                     "duration": {
                         "text": "15 mins",
-                        "value": 874
+                        "value": 927
                     },
                     "duration_in_traffic": {
-                        "text": "17 mins",
-                        "value": 1035
+                        "text": "20 mins",
+                        "value": 1199
                     },
                     "status": "OK"
                 },

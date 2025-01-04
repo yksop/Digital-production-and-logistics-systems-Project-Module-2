@@ -317,16 +317,16 @@
                 },
                 {
                     "distance": {
-                        "text": "4.2 km",
-                        "value": 4170
+                        "text": "4.0 km",
+                        "value": 3981
                     },
                     "duration": {
                         "text": "15 mins",
-                        "value": 913
+                        "value": 877
                     },
                     "duration_in_traffic": {
                         "text": "17 mins",
-                        "value": 1040
+                        "value": 1017
                     },
                     "status": "OK"
                 }

@@ -471,16 +471,16 @@
                 },
                 {
                     "distance": {
-                        "text": "2.1 km",
-                        "value": 2122
+                        "text": "1.9 km",
+                        "value": 1933
                     },
                     "duration": {
                         "text": "6 mins",
-                        "value": 382
+                        "value": 347
                     },
                     "duration_in_traffic": {
-                        "text": "8 mins",
-                        "value": 467
+                        "text": "7 mins",
+                        "value": 436
                     },
                     "status": "OK"
                 }

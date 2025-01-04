@@ -610,16 +610,16 @@
                 },
                 {
                     "distance": {
-                        "text": "4.5 km",
-                        "value": 4464
+                        "text": "4.2 km",
+                        "value": 4239
                     },
                     "duration": {
                         "text": "15 mins",
-                        "value": 874
+                        "value": 927
                     },
                     "duration_in_traffic": {
-                        "text": "17 mins",
-                        "value": 1032
+                        "text": "20 mins",
+                        "value": 1186
                     },
                     "status": "OK"
                 },
@@ -918,16 +918,16 @@
                 },
                 {
                     "distance": {
-                        "text": "4.4 km",
-                        "value": 4406
+                        "text": "4.2 km",
+                        "value": 4181
                     },
                     "duration": {
                         "text": "15 mins",
-                        "value": 874
+                        "value": 927
                     },
                     "duration_in_traffic": {
-                        "text": "17 mins",
-                        "value": 1023
+                        "text": "20 mins",
+                        "value": 1173
                     },
                     "status": "OK"
                 },

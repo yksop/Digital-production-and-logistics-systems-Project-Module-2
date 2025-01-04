@@ -70,7 +70,7 @@ def test_get_routes(api_key: str) -> None:
 def main() -> None:
     api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 
-    test_get_location_info(api_key) # run this when locations.txt is changed
+    test_get_location_info(api_key)  # run this when locations.txt is changed
     test_distance_matrix(api_key)
     # test_image_map_markers(api_key)
     # test_get_routes(api_key)
