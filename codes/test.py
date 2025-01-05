@@ -18,7 +18,6 @@ def test_get_location_info(api_key: str) -> None:
 
 
 def test_distance_matrix(api_key: str) -> None:
-    # TODO: when locations.txt change, it is not upadating the json file
     """
     This function will create a time matrix in minutes for all the locations in the database.
     Args:
@@ -70,9 +69,9 @@ def test_get_routes(api_key: str) -> None:
 def main() -> None:
     api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 
-    test_get_location_info(api_key)  # run this when locations.txt is changed
-    test_distance_matrix(api_key)
-    # test_image_map_markers(api_key)
+    # test_get_location_info(api_key)  # run this when locations.txt is changed
+    # test_distance_matrix(api_key)
+    test_image_map_markers(api_key)
     # test_get_routes(api_key)
 
 
