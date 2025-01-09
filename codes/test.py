@@ -75,8 +75,8 @@ def main() -> None:
 
     # test_get_location_info(api_key)  # run this when locations.txt is changed
     # test_distance_matrix(api_key)
-    # test_image_map_markers(api_key)
-    test_get_routes(api_key)
+    test_image_map_markers(api_key)
+    # test_get_routes(api_key)
 
 
 if __name__ == "__main__":
