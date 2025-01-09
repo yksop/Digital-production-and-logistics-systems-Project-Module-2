@@ -46,19 +46,23 @@ def get_route(origin: tuple, destination: tuple, TARGET_WEEKDAY: int, TARGET_HOU
         print(f"HTTP error: {response.status_code}")
         return None
 
-def get_static_map_url_path(path: str, api_key: str) -> str:
+def get_static_map_url_path(path: str, api_key: str, origin: tuple, destination: tuple) -> str:
     """
     Create the complete URL for the Google Static Maps API request with the route path.
     
     Args:
         path (str): URL parameter string for the path.
         api_key (str): Google Maps API key.
+        origin (tuple): Tuple containing the latitude and longitude of the origin.
+        destination (tuple): Tuple containing the latitude and longitude of the destination.
     
     Returns:
         str: Complete URL for the API request.
     """
+    markers = f"&markers=size:small%7Ccolor:green%7Clabel:O%7C{origin[0]},{origin[1]}"
+    markers += f"&markers=size:small%7Ccolor:red%7Clabel:D%7C{destination[0]},{destination[1]}"
     url = "https://maps.googleapis.com/maps/api/staticmap?"
-    url_complete = url + "&size=400x400&key=" + api_key + path + "&style=feature:poi|visibility:off"
+    url_complete = url + "&size=400x400&key=" + api_key + path + "&style=feature:poi|visibility:off" + markers
     return url_complete
 
 def get_path_from_encoded_polyline(encoded_polyline: str) -> str:
@@ -74,7 +78,7 @@ def get_path_from_encoded_polyline(encoded_polyline: str) -> str:
     path = f"&path=weight:2|color:red|enc:{encoded_polyline}"
     return path
 
-def main(origin: tuple, destination: tuple, n_route: int, TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str) -> None:
+def main(origin: tuple, destination: tuple, n_route: int, TARGET_WEEKDAY: int, TARGET_HOUR: int, api_key: str, image_path: str) -> None:
     """
     Main function to create a static map image with the route between the origin and destination.
     This function retrieves the route, generates the static map image, and saves it to a file.
@@ -86,20 +90,20 @@ def main(origin: tuple, destination: tuple, n_route: int, TARGET_WEEKDAY: int, T
         TARGET_WEEKDAY (int): The target weekday (0=Monday, 6=Sunday).
         TARGET_HOUR (int): The target hour (24-hour format).
         api_key (str): Google Maps API key.
+        image_path (str): Path to the directory where the image will be saved.
     
     Returns:
         None
     """
-    current_dir = os.path.dirname(os.path.abspath(__file__))
     image_name = f"route{n_route}.png"
-    image_path = os.path.join(current_dir, "images", image_name)
+    image_path_complete = os.path.join(image_path, image_name)
     
     encoded_polyline = get_route(origin, destination, TARGET_WEEKDAY, TARGET_HOUR, api_key)
     path = get_path_from_encoded_polyline(encoded_polyline)
-    url = get_static_map_url_path(path, api_key)
+    url = get_static_map_url_path(path, api_key, origin, destination)
     r = requests.get(url)
     print("API Call")
-    with open(image_path, "wb") as f:
+    with open(image_path_complete, "wb") as f:
         f.write(r.content)
 
 if __name__ == "__main__":

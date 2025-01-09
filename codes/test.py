@@ -63,7 +63,11 @@ def test_get_routes(api_key: str) -> None:
     n_route = 1
     TARGET_WEEKDAY = 0
     TARGET_HOUR = 8
-    gr.main(origin, destination, n_route, TARGET_WEEKDAY, TARGET_HOUR, api_key)
+
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    image_path = os.path.join(current_dir, "images")
+
+    gr.main(origin, destination, n_route, TARGET_WEEKDAY, TARGET_HOUR, api_key, image_path)
 
 
 def main() -> None:
@@ -71,8 +75,8 @@ def main() -> None:
 
     # test_get_location_info(api_key)  # run this when locations.txt is changed
     # test_distance_matrix(api_key)
-    test_image_map_markers(api_key)
-    # test_get_routes(api_key)
+    # test_image_map_markers(api_key)
+    test_get_routes(api_key)
 
 
 if __name__ == "__main__":
