@@ -92,7 +92,7 @@ def main(origin: tuple, destination: tuple, n_route: int, TARGET_WEEKDAY: int, T
     """
     current_dir = os.path.dirname(os.path.abspath(__file__))
     image_name = f"route{n_route}.png"
-    image_path = os.path.join(current_dir, "output", image_name)
+    image_path = os.path.join(current_dir, "images", image_name)
     
     encoded_polyline = get_route(origin, destination, TARGET_WEEKDAY, TARGET_HOUR, api_key)
     path = get_path_from_encoded_polyline(encoded_polyline)

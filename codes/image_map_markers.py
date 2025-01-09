@@ -60,7 +60,7 @@ def main(locations_to_plot: list, api_key: str) -> None:
         None
     """
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    image_path = os.path.join(current_dir, "output\\map_image.png")
+    image_path = os.path.join(current_dir, "images\\map_image.png")
 
     locations, id, geometry = gl.main(api_key)
 
